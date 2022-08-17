@@ -2,7 +2,10 @@
 
 <%= render @restaurant %>
 
+
+  <%= link_to "See reviews for this restaurant", restaurant_reviews_path(@restaurant) %>
 <div>
+  <%= link_to "Add a review", new_restaurant_review_path(@restaurant) %> |
   <%= link_to "Edit this restaurant", edit_restaurant_path(@restaurant) %> |
   <%= link_to "Back to restaurants", restaurants_path %>
 

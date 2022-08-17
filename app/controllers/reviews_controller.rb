@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :set_review, only: %i[ show edit update destroy ]
+  before_action :set_review, only: %i[edit destroy]
 
   # GET /reviews
   def index
@@ -8,10 +8,12 @@ class ReviewsController < ApplicationController
 
   # GET /reviews/1
   def show
+    @review = Review.find(params[:id])
   end
 
   # GET /reviews/new
   def new
+    @restaurant = Restaurant.find(params[:restaurant_id])
     @review = Review.new
   end
 
@@ -21,10 +23,11 @@ class ReviewsController < ApplicationController
 
   # POST /reviews
   def create
+    @restaurant = Restaurant.find(params[:id])
     @review = Review.new(review_params)
-
+    @review.restaurant = @restaurant
     if @review.save
-      redirect_to @review, notice: "Review was successfully created."
+      redirect_to @restaurant, notice: "Review was successfully created."
     else
       render :new, status: :unprocessable_entity
     end

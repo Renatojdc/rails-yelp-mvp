@@ -1,7 +1,12 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @review %>
-
+<ul class="list-group">
+  <% @restaurant.reviews.each do |review| %>
+    <li class="list-group-item"><%= review.content %></li>
+  <% end %>
+</ul>
+<br>
 <div>
   <%= link_to "Edit this review", edit_review_path(@review) %> |
   <%= link_to "Back to reviews", reviews_path %>
