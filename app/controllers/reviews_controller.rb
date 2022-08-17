@@ -23,8 +23,8 @@ class ReviewsController < ApplicationController
 
   # POST /reviews
   def create
-    @restaurant = Restaurant.find(params[:id])
     @review = Review.new(review_params)
+    @restaurant = Restaurant.find(params[:restaurant_id])
     @review.restaurant = @restaurant
     if @review.save
       redirect_to @restaurant, notice: "Review was successfully created."
