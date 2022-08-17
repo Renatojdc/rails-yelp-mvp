@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_17_150158) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_17_172431) do
   create_table "restaurants", force: :cascade do |t|
     t.string "name"
     t.string "address"
